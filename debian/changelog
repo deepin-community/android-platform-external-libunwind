@@ -1,0 +1,187 @@
+android-platform-external-libunwind (10.0.0+r36-4) unstable; urgency=medium
+
+  * update included 7z headers
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Tue, 08 Dec 2020 10:58:22 +0100
+
+android-platform-external-libunwind (10.0.0+r36-3) unstable; urgency=medium
+
+  [ Andrej Shadura ]
+  * Pass -fcommon to unbreak build with GCC 10 (Closes: #956994)
+
+  [ Hans-Christoph Steiner ]
+  * fix minor lintian issues
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Thu, 08 Oct 2020 17:57:00 +0200
+
+android-platform-external-libunwind (10.0.0+r36-2) unstable; urgency=medium
+
+  [ Andrej Shadura ]
+  * Pass -fcommon to unbreak build with GCC 10
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Thu, 08 Oct 2020 17:55:08 +0200
+
+android-platform-external-libunwind (10.0.0+r36-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Drop compat file, rely on debhelper-compat and bump compat level to 12.
+  * Update Standards-Version (no changes needed).
+
+ -- Manas Kashyap <manaskashyaptech@gmail.com>  Fri, 22 May 2020 21:26:12 +0530
+
+android-platform-external-libunwind (8.1.0+r23-3) unstable; urgency=medium
+
+  * Team upload.
+  * debian/watch: Update rule to get new upstream version.
+  * debian/control: Add Rules-Requires-Root: no
+  * debian/rules: Add more security hardening.
+
+ -- Roger Shimizu <rosh@debian.org>  Mon, 11 May 2020 02:20:19 +0900
+
+android-platform-external-libunwind (8.1.0+r23-2) unstable; urgency=medium
+
+  [ Kai-Chung Yan ]
+  * Release to unstable
+  * Standards-Version => 4.2.1: Remove get-orig-source
+
+  [ Hans-Christoph Steiner ]
+  * Fix missing-notice-file-for-apache-license
+  * Unify the maintainer name as "Android Tools Maintainers"
+  * Add a smoke autopkgtest
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Mon, 15 Oct 2018 16:35:34 +0800
+
+android-platform-external-libunwind (8.1.0+r23-1) experimental; urgency=medium
+
+  * New upstream release
+  * Add myself to Uploaders
+  * Update Standards-Version to 4.1.4.1
+  * Fixes FTCBFS thanks to Helmut Grohne (Closes: #897062)
+  * Move Vcs to Salsa
+
+  [ 殷啟聰 | Kai-Chung Yan ]
+  * Use `debian/clean` to simplify the build scripts
+  * Use HTTPS URLs for `debian/copyright`
+  * Update to debhelper compat level 11
+
+ -- Umang Parmar <umangjparmar@gmail.com>  Wed, 16 May 2018 02:31:50 +0530
+
+android-platform-external-libunwind (7.0.0+r1-4) unstable; urgency=medium
+
+  [ Hans-Christoph Steiner]
+  * Team upload
+
+  [ Daigo Moriwaki ]
+  * Fix off-by-one in dwarf_to_unw_regnum(), applying an upstream patch
+    396b6c7ab737e2bff244d640601c436a26260ca1.
+    (Closes: #849346) (CVE-2015-3239)
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Mon, 26 Dec 2016 00:09:38 +0100
+
+android-platform-external-libunwind (7.0.0+r1-3) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Tue, 06 Dec 2016 16:28:35 +0800
+
+android-platform-external-libunwind (7.0.0+r1-2) experimental; urgency=medium
+
+  [ Kai-Chung Yan ]
+  * Update to debhelper 10
+  * Fix the source file list on MIPS platforms
+  * New legacy_built-in_sync_functions.patch for replacing legacy __sync_*
+    functions, which are not supported on armel, with __atomic_* ones.
+  * Link against libgcc for the __atomic_* built-in functions
+  * Remove libbsd-dev from Build-Depends.
+
+  [ Markus Koschany ]
+  * Pass --without autoreconf to dh instead of using an override for
+    dh_autoreconf.
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Tue, 04 Oct 2016 23:24:05 +0800
+
+android-platform-external-libunwind (7.0.0+r1-1) experimental; urgency=medium
+
+  * New upstream release
+  * d/control: Improve package description
+  * Build against 7z.so from p7zip-full
+    - Include header files of 7z.so in this package
+    - Install a symlink named "lib7z.so"
+  * Define NDEBUG for C binaries
+  * New user_ptr_regs.patch: Fix FTBFS on arm64
+  * Remove unavailable architectures: arm, armeb & mips64
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Fri, 16 Sep 2016 15:16:05 +0800
+
+android-platform-external-libunwind (6.0.1+r55-1) unstable; urgency=medium
+
+  [ Chirayu Desai ]
+  * New upstream release. (Identical to 6.0.1+r16)
+  * debian: Add watch file for usage with uscan
+
+  [ Kai-Chung Yan ]
+  * d/rules: No need to enable all hardening features, pie + bindnow will be
+    default in Stretch
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Sun, 31 Jul 2016 14:32:45 +0800
+
+android-platform-external-libunwind (6.0.1+r16-3) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Kai-Chung Yan ]
+  * Install libraries to DEB_HOST_MULTIARCH path
+  * Update Standards-Version to 3.9.8 (no change)
+  * d/rules: export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+  [ Markus Koschany ]
+  * Remove non-existent arm architecture from debian/control and add armel and
+    armhf instead.
+
+ -- Markus Koschany <apo@debian.org>  Thu, 02 Jun 2016 12:06:35 +0200
+
+android-platform-external-libunwind (6.0.1+r16-2) unstable; urgency=medium
+
+  * add missing Architectures: armel armhf
+  * Standards-Version: 3.9.7 (no change)
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Mon, 22 Feb 2016 08:50:26 +0100
+
+android-platform-external-libunwind (6.0.1+r16-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Fri, 12 Feb 2016 14:29:41 +0800
+
+android-platform-external-libunwind (6.0.0+r26-3) unstable; urgency=medium
+
+  * upload to unstable
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Sun, 07 Feb 2016 21:48:33 +0100
+
+android-platform-external-libunwind (6.0.0+r26-2) experimental; urgency=medium
+
+  * Add version 0 to SONAME
+  * No longer need dh-exec
+  * Simplify makefile
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Tue, 17 Nov 2015 21:58:29 +0800
+
+android-platform-external-libunwind (6.0.0+r26-1) experimental; urgency=low
+
+  * New upstream release
+  * Fix Vcs-Git address
+  * Architecture limited to Linux kernel
+  * d/rules:
+    - Use mk-origtargz for get-orig-source
+    - Automate UPSTREAM_TAG variable
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Thu, 12 Nov 2015 23:14:57 +0800
+
+android-platform-external-libunwind (5.1.1+r8-1) unstable; urgency=low
+
+  [ Kai-Chung Yan ]
+  * Initial release (Closes: #795173)
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Tue, 18 Aug 2015 19:08:53 +0200
