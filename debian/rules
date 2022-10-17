@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+# Security Hardening
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CFLAGS_MAINT_APPEND = -fPIC
+export DEB_CPPFLAGS_MAINT_APPEND = -DNDEBUG
+export DEB_LDFLAGS_MAINT_APPEND = -fPIC
+
+%:
+	dh $@ --without autoreconf
+
+override_dh_auto_build:
+	dh_auto_build --buildsystem=makefile -- -f debian/libunwind.mk

@@ -1,0 +1,3 @@
+# We use hand-written makefiles to build the package
+
+ancient-libtool

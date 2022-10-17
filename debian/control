@@ -1,0 +1,42 @@
+Source: android-platform-external-libunwind
+Section: libs
+Priority: optional
+Maintainer: Android Tools Maintainers <android-tools-devel@lists.alioth.debian.org>
+Uploaders: Kai-Chung Yan <seamlikok@gmail.com>,
+           Hans-Christoph Steiner <hans@eds.org>,
+           Umang Parmar <umangjparmar@gmail.com>
+Build-Depends: debhelper-compat (= 12),
+               dh-exec,
+               p7zip-full
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Homepage: https://android.googlesource.com/platform/external/libunwind
+Vcs-Git: https://salsa.debian.org/android-tools-team/android-platform-external-libunwind.git
+Vcs-Browser: https://salsa.debian.org/android-tools-team/android-platform-external-libunwind
+
+Package: android-libunwind
+Architecture: amd64 i386 arm64 armel armhf mips mipsel mips64el
+Depends: p7zip-full, ${shlibs:Depends}, ${misc:Depends}
+Description: libunwind for Android
+ This library is the AOSP fork of libunwind. It is used by libbacktrace.
+ .
+ This package is only available on x86, ARM and MIPS because the AOSP
+ modifications only apply on these platforms.
+ .
+ This library is only used by Android SDK currently.
+
+Package: android-libunwind-dev
+Section: libdevel
+Architecture: amd64 i386 arm64 armel armhf mips mipsel mips64el
+Depends: android-libunwind (= ${binary:Version}),
+         libbsd-dev,
+         ${misc:Depends}
+Description: libunwind for Android - Development files
+ This library is the AOSP fork of libunwind. It is used by libbacktrace.
+ .
+ This package is only available on x86, ARM and MIPS because the AOSP
+ modifications only apply on these platforms.
+ .
+ This library is only used by Android SDK currently.
+ .
+ This package provides the development files.
